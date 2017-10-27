@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour {
 
     public float RateOfFire = 2.0f;
     public Transform Projectile;
+    public Transform Socket;
 
     private float TimerShoot = 0.0f;
 
@@ -22,8 +23,15 @@ public class Shoot : MonoBehaviour {
         if (Input.GetButton("Fire1") && TimerShoot > 1.0f / RateOfFire)
         {
             TimerShoot = 0.0f;
+
+            Vector3 shootPosition = Camera.main.transform.position + Camera.main.transform.forward * 2.0f;
+            if (Socket != null)
+                shootPosition = Socket.position;
+
+            Debug.Log(Socket.position);
+
             Transform balle = Instantiate(Projectile,
-                Camera.main.transform.position + Camera.main.transform.forward * 2.0f,
+                shootPosition,
                 Camera.main.transform.rotation
                 ) as Transform;
             Rigidbody rb = balle.GetComponent<Rigidbody>();

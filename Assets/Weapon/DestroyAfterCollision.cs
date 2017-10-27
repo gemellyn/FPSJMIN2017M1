@@ -34,6 +34,5 @@ public class DestroyAfterCollision : MonoBehaviour {
     {
         destroyWhenOutOfSight = true;
         GetComponent<AudioSource>().Play();
-        //GetComponent<AudioSource>().Pitch = Random.
     }
 }
