@@ -28,8 +28,6 @@ public class Shoot : MonoBehaviour {
             if (Socket != null)
                 shootPosition = Socket.position;
 
-            Debug.Log(Socket.position);
-
             Transform balle = Instantiate(Projectile,
                 shootPosition,
                 Camera.main.transform.rotation
